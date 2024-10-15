@@ -1,0 +1,41 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id        Int         @id @default(autoincrement())
+  name      String      @unique
+  password  String
+  email     String      @unique
+  phone     String?      @unique
+  createdAt DateTime    @default(now())
+  suppliers suppliers[]
+  customers customers[]
+}
+
+model suppliers {
+  id          Int      @id @default(autoincrement())
+  name        String   
+  address     String
+  psc         String
+  ico         String
+  dic         String
+  bank        String
+  bankAccount String
+  createdAt   DateTime @default(now())
+  userId      Int
+  user        users     @relation(fields: [userId], references: [id])
+}
+
+model customers {
+  id        Int      @id @default(autoincrement())
+  name      String    
+  address   String
+  psc       String
+  ico       String
+  dic       String
+  createdAt DateTime @default(now())
+  userId    Int
+  user      users     @relation(fields: [userId], references: [id])
+}

@@ -1,0 +1,195 @@
+@mixin center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin center-column {
+    @include center();
+    flex-direction: column;
+}
+
+#section {
+    width: 100%;
+    @include center();
+    font-size: 13px !important;
+    line-height: 140% !important;
+
+    .container {
+        @include center-column();
+        justify-content: flex-start;
+        width: 794px;
+        height: 1123px;
+        padding: 60px 80px;
+
+        #header {
+            @include center-column();
+            width: 100%;
+            gap: 15px;
+
+            #title {
+                text-align: center;
+                width: 100%;
+                padding: var(--padding);
+                font-size: 20px;
+                border: var(--border-l);
+            }
+
+            #number {
+                align-self: flex-end;
+                margin-right: 160px;
+            }
+        }
+
+        #head {
+            margin-top: 15px;
+            @include center-column();
+            width: 100%;
+            border: var(--border-l);
+
+            #profiles {
+                @include center();
+                justify-content: flex-start;
+                align-items: flex-start;
+                width: 100%;
+                border-bottom: var(--border-s);
+
+                #supplier {
+                    width: 270px;
+                    border-right: var(--border-s);
+                }
+
+                .profile {
+                    padding: 0 2px;
+                    @include center();
+                    align-items: flex-start;
+                    justify-content: flex-start;
+                    gap: 2px;
+                    height: 135px;
+
+                    .info {
+                        @include center-column();
+                        justify-content: space-between;
+                        width: 100%;
+                        gap: 30px;
+                        height: 100%;
+
+                        .block {
+                            width: 100%;
+                            @include center-column();
+                            align-items: flex-start;
+                        }
+                    }
+                }
+            }
+
+            #details {
+                @include center();
+                width: 100%;
+                justify-content: flex-start;
+
+                .block {
+                }
+
+                #credentials {
+                    width: 270px;
+                    border-right: var(--border-s);
+
+                    .item {
+                        padding: 0 2px;
+                        
+                        &:nth-child(1), &:nth-child(2){
+                            @include center();
+                            justify-content: flex-start;
+                            .title{
+                                width: 69px;
+                            }
+                        }
+
+                        &.border {
+                            border-bottom: var(--border-s);
+                        }
+                    }
+                }
+
+                #payment {
+                    padding: 0 2px;
+                    .item {
+                        width: 353px;
+                        @include center();
+                        justify-content: space-between;
+
+                        b {
+                        }
+                    }
+                }
+            }
+        }
+
+        #body {
+            width: 100%;
+            margin-top: 35px;
+
+            .content {
+                @include center-column();
+                align-items: flex-start;
+                gap: 10px;
+                margin-top: 15px;
+                padding-top: 10px;
+                border-top: var(--border-s);
+            }
+        }
+
+        #footer {
+            @include center-column();
+            width: 100%;
+            gap: 15px;
+            margin-top: auto;
+
+            #price {
+                @include center;
+                width: 100%;
+                justify-content: flex-end;
+                border: var(--border-l);
+                padding: 2px;
+                gap: 100px;
+
+                .item {
+                    @include center-column();
+                    align-items: flex-end;
+                }
+            }
+
+            #signature {
+                @include center-column();
+                width: 100%;
+                align-items: self-start;
+
+                .relation {
+                    @include center();
+                    width: 100%;
+                    .item {
+                        @include center();
+                        align-items: flex-start;
+                        width: 100%;
+                        border: var(--border-s);
+                        height: 135px;
+
+                        &:nth-child(1) {
+                            border-right: none;
+                            border-bottom: none;
+                        }
+                    }
+                }
+
+                .date {
+                    margin-top: -1px;
+                    @include center();
+                    align-items: flex-start;
+                    width: 317.5px;
+                    height: 60px;
+                    border: var(--border-s);
+                }
+            }
+        }
+    }
+}
